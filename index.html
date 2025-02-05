@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Expenses App</title>
+    <link rel="shortcut icon" href="resources/money_favicon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+
+    <div class="container">
+
+      <h1 class="label title">Учёт расходов</h1>
+
+      <div class="expenses">
+
+        <div class="expenses__box">
+          <div class="input-wrapper">
+            <div class="input__input">
+              <input
+                class="js-input input"
+                type="number"
+                min="1"
+              />
+              <span class="js-input__currency input__currency"></span>
+            </div>
+            <div class="input__category">
+              <select class="js-category input__category-list">
+                <option value="Категория" hidden disabled selected>Категория</option>
+                <option value="Жильё">Жильё</option>
+                <option value="Еда">Еда</option>
+                <option value="Транспорт">Транспорт</option>
+                <option value="Счета">Счета</option>
+                <option value="Здоровье">Здоровье</option>
+                <option value="Развлечения">Развлечения</option>
+                <option value="Другие расходы">Другие расходы</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="expenses__box">
+          <div class="input-wrapper">
+            <button class="js-add-btn btn add-btn">Добавить</button>
+            <div class="js-error-message error-message error-message_hidden">
+            </div>
+          </div>
+        </div>
+
+        <div class="expenses__box">
+          <div class="stats">
+            <div class="stats__limit">
+              <span class="label">Лимит:</span>
+              <span class="js-limit"></span>
+              <button class="js-pop-up__open-btn pop-up__open-btn">
+                <img
+                  class="stats__limit-img"
+                  src="./resources/change_limit.png"
+                  alt="Изменить лимит"
+                >
+              </button>
+            </div>
+            <div class="stats__sum">
+              <span class="label">Всего:</span>
+              <span class="js-sum"></span>
+            </div>
+            <div class="stats__status">
+              <span class="label">Статус:</span>
+              <span class="js-status stats__status-green"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="expenses__box">
+          <div class="history">
+            <h2 class="label history__title">История:</h2>
+            <ol class="js-history__list history__list"></ol>
+          </div>
+        </div>
+
+        <div class="expenses__box">
+          <button class="js-clear-btn btn clear-btn">Сбросить расходы</button>
+        </div>
+
+      </div>
+
+      <!-- Pop-up -->
+
+      <div class="js-pop-up pop-up">
+
+        <div class="js-pop-up__content pop-up__content">
+
+          <div class="pop-up__content__box">
+            <p class="label pop-up__title">Новый лимит</p>
+          </div>
+
+          <div class="pop-up__content__box">
+            <div class="pop-up__close-btn-wrapper">
+              <img class="js-pop-up__close-btn pop-up__close-btn"
+                src="./resources/close_icon.svg"
+                alt="Закрыть поп-ап"
+              >
+            </div>
+          </div>
+
+          <div class="pop-up__content__box">
+            <div class="input__input">
+              <input class="js-pop-up__input input" type="number"/>
+              <span class="js-input__currency input__currency"></span>
+            </div>
+          </div>
+
+          <div class="pop-up__content__box">
+            <button class="js-pop-up__set-btn btn pop-up__set-btn">Задать лимит</button>
+          </div>
+        
+        </div>
+      </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="pop-up.js"></script>
+  </body>
+</html>
