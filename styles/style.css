@@ -339,6 +339,14 @@ ol li::before {
     flex-direction: column;
     row-gap: 30px;
   }
+
+  .expenses__box:nth-child(4) {
+    order: 2;
+  }
+
+  .expenses__box:nth-child(5) {
+    order: 1;
+  }
   
   .expenses__box,
   .pop-up__content__box {
@@ -401,8 +409,6 @@ ol li::before {
   /* History */
   .history__list {
     margin-left: 15px;
-    max-height: 100px;
-    overflow-y: auto;
   }
   
   /* Pop-up */
