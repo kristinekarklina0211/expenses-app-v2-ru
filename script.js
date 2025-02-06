@@ -92,7 +92,7 @@ function init() {
 // 3. Получаем введённую пользователем сумму
 const getExpenseFromUser = () => parseInt(inputNode.value);
 
-// 3.1 Очищаем поле ввода суммы
+// 3.1 Очищаем поле ввода
 const clearInput = (input) => {
     input.value = "";
 };
@@ -102,10 +102,13 @@ const getCategoryFromUser = () => categoryNode.value.toLowerCase();
 
 // 5. Собираем данные от пользователя и сохраняем их в массив расходов expenses
 const addExpense = () => {
+    // Скрываем ошибку перед проверками
+    errorMessageNode.classList.add("error-message_hidden");
+    
     // 1. Получаем введённую пользователем сумму и сохраняем её в переменную amount
     const amount = getExpenseFromUser();
 
-    // Если сумма не введена, то выполнение функции прерывается
+    // 1.1 Если сумма не введена, то выполнение функции прерывается
     if (!amount) {
         showError("Введите сумму!");
         return;
@@ -117,9 +120,9 @@ const addExpense = () => {
     // Если категория не введена, то выполнение функции прерывается
     if (categoryNode.selectedIndex === 0) {
         showError("Выберите категорию!");
-        return null;
+        return;
     }
-
+    
     // 3. Из полученных переменных собираем объект newExpense, который состоит из двух полей –
     // amount, в которое записано значение переменной amount,
     // и category, в которое записано значение переменной category
